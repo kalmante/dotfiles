@@ -6,6 +6,12 @@ M.spec = {
     'folke/tokyonight.nvim',
     enabled = false,
   },
+
+  -- Disable catppuccin
+  {
+    'catppuccin/nvim',
+    enabled = false,
+  },
 }
 
 return M.spec
