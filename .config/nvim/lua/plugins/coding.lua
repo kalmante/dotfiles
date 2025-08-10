@@ -29,6 +29,13 @@ M.spec = {
       { 's', desc = 'Surround (Visual)', mode = 'v' },
     },
   },
+
+  -- inc-rename
+  {
+    'smjonas/inc-rename.nvim',
+    cmd = 'IncRename',
+    config = true,
+  },
 }
 
 return M.spec
