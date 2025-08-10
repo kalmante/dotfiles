@@ -39,6 +39,7 @@ M.spec = {
     dependencies = { 'craftzdog/solarized-osaka.nvim' },
 
     config = function()
+      ---@type table<string, string> colors
       local colors = require('solarized-osaka.colors').setup()
       require('incline').setup {
         highlight = {
@@ -54,13 +55,19 @@ M.spec = {
         hide = {
           cursorline = true,
         },
+
+        ---@class RenderProps
+        ---@field buf number
+        ---@param props RenderProps
         render = function(props)
+          ---@type string
           local filename =
             vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
           if vim.bo[props.buf].modified then
             filename = '[+]' .. filename
           end
 
+          ---@type string, string
           local icon, color =
             require('nvim-web-devicons').get_icon_color(filename)
           return { { icon, guifg = color }, { ' ' }, { filename } }
