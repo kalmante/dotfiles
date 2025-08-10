@@ -13,12 +13,13 @@ M.spec = {
     enabled = false,
   },
 
-  -- Disable snacks indent scroll
+  -- Disable snacks.nvim indent, scroll and dashboard
   {
     'snacks.nvim',
     opts = {
       indent = { enabled = false },
       scroll = { enabled = false },
+      dashboard = { enabled = false },
     },
   },
 }
