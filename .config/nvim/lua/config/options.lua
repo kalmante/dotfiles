@@ -44,7 +44,7 @@ vim.opt.spelllang = { 'en' }
 vim.opt.timeoutlen = vim.g.vscode and 1000 or 300
 
 -- Command and path behavior
-vim.opt.clipboard:append 'unnamedplus'
+vim.opt.clipboard = vim.env.SSH_TTY and '' or 'unnamedplus'
 vim.opt.formatoptions:append { 'r' }
 vim.opt.path:append { '**' }
 vim.opt.shortmess:append 'I'
