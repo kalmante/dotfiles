@@ -185,6 +185,8 @@ M.spec = {
           },
           single_file_support = true,
         },
+
+        jsonls = {},
       },
     },
   },
