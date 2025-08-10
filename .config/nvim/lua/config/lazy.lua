@@ -38,6 +38,8 @@ require('lazy').setup {
     -- import/override with your plugins
     { import = 'lazyvim.plugins.extras.linting.eslint' },
 
+    { import = 'lazyvim.plugins.extras.formatting.prettier' },
+
     { import = 'plugins' },
   },
   defaults = {
