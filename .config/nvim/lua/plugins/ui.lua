@@ -23,14 +23,6 @@ M.spec = {
     },
   },
 
-  -- nvim-notify
-  {
-    'rcarriga/nvim-notify',
-    opts = {
-      timeout = 5000,
-    },
-  },
-
   -- incline
   {
     'b0o/incline.nvim',
