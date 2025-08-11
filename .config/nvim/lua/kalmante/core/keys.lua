@@ -70,12 +70,7 @@ function M.plugins()
     '<cmd>Mason<CR>',
     { desc = 'Open Mason tool manager' }
   )
-  keys.set(
-    'n',
-    '<leader>ch',
-    ':nohl<CR>',
-    { desc = 'Clear highlights' }
-  )
+  keys.set('n', '<leader>ch', ':nohl<CR>', { desc = 'Clear highlights' })
 end
 
 function M.inspect()
