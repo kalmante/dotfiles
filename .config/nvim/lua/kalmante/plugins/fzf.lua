@@ -6,31 +6,34 @@ M.spec = {
   lazy = true,
   cmd = { 'FzfLua' },
   dependencies = {
-    { 'nvim-tree/nvim-web-devicons', lazy = true },
+    {
+      'nvim-tree/nvim-web-devicons',
+      lazy = true
+    },
   },
 
-opts = {
-  file_icon_padding = '',
-  keymap = {
-    fzf = {
-      ['CTRL-Q'] = 'select-all+accept',
+  opts = {
+    file_icon_padding = '',
+    keymap = {
+      fzf = {
+        ['CTRL-Q'] = 'select-all+accept',
+      },
+    },
+    fzf_opts = {
+      ['--wrap'] = true,
+      ['--ansi'] = true,
+    },
+    fzf_colors = true,
+    winopts = {
+      preview = {
+        wrap = true,
+      },
+      formatter = 'path.dirname_first',
+      treesitter = {
+        enabled = true,
+      },
     },
   },
-  fzf_opts = {
-    ['--wrap'] = true,
-    ['--ansi'] = true,
-  },
-  fzf_colors = true,
-  winopts = {
-    preview = {
-      wrap = true,
-    },
-    formatter = 'path.dirname_first',
-    treesitter = {
-      enabled = true,
-    },
-  },
-},
 
   keys = {
     {
