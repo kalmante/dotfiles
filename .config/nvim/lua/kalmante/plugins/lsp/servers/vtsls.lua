@@ -7,13 +7,17 @@ local M = {}
 --- @param server table The LSP server instance from lspconfig
 --- @param capabilities table The capabilities object passed to the LSP server
 function M.setup(server, capabilities)
-  if #vim.lsp.get_clients { name = 'vtsls' } > 0 then
-    return
+  if #vim.lsp.get_clients() > 0 then
+    for _, client in ipairs(vim.lsp.get_clients()) do
+      if client.name == 'vtsls' then
+        return
+      end
+    end
   end
 
   --- Inlay hints configuration for JavaScript and TypeScript
   local ts_inlay_hints = {
-    includeInlayParameterNameHints = "all",
+    includeInlayParameterNameHints = 'all',
     includeInlayParameterNameHintsWhenArgumentMatchesName = false,
     includeInlayFunctionParameterTypeHints = true,
     includeInlayVariableTypeHints = true,
@@ -30,29 +34,26 @@ function M.setup(server, capabilities)
       'javascriptreact',
       'typescript',
       'typescriptreact',
-      -- allows TS support inside Astro for React integration
-      'astro',
+      'astro', -- allows TS support inside Astro for React integration
     },
     root_dir = function(fname)
       -- Detect TS/JS project root via config files
       return util.root_pattern(
-            'tsconfig.json',
-            'tsconfig.base.json',
-            'tsconfig.app.json',
-            'tsconfig.node.json',
-            'jsconfig.json',
-            'package.json'
-          )(fname) or
-          -- Fall back to package manager lockfiles or .git
-          util.root_pattern(
-            'package-lock.json',
-            'pnpm-lock.yaml',
-            'pnpm-workspace.yaml',
-            'yarn.lock',
-            'bun.lock',
-            'bun.lockb',
-            '.git'
-          )(fname)
+        'tsconfig.json',
+        'tsconfig.base.json',
+        'tsconfig.app.json',
+        'tsconfig.node.json',
+        'jsconfig.json',
+        'package.json'
+      )(fname) or util.root_pattern(
+        'package-lock.json',
+        'pnpm-lock.yaml',
+        'pnpm-workspace.yaml',
+        'yarn.lock',
+        'bun.lock',
+        'bun.lockb',
+        '.git'
+      )(fname)
     end,
     settings = {
       typescript = {
