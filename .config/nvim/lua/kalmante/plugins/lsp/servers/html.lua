@@ -15,7 +15,6 @@ function M.setup(server, capabilities)
     capabilities = capabilities,
     filetypes = { 'html' },
     root_dir = util.root_pattern('index.html', 'package.json', '.git'),
-    single_file_support = true,
 
     on_attach = function(client)
       client.server_capabilities.documentFormattingProvider = false
@@ -40,6 +39,7 @@ function M.setup(server, capabilities)
         },
       },
     },
+    single_file_support = true,
   }
 end
 
