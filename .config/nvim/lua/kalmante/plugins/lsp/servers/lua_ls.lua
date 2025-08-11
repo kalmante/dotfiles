@@ -3,7 +3,7 @@ local util = require 'lspconfig.util'
 ---@class LuaServerConfig
 local M = {}
 
---- Setup the Lua LSP server with given capabilities.
+--- Setup the lua_ls LSP server with given capabilities.
 --- @param server table LSP server instance from lspconfig
 --- @param capabilities table Capabilities object passed to the LSP server
 function M.setup(server, capabilities)
