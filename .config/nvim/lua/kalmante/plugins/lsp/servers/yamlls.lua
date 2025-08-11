@@ -38,7 +38,6 @@ function M.setup(server, capabilities)
         },
       },
     },
-
     single_file_support = true,
   }
 end
