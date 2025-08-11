@@ -3,7 +3,7 @@ local util = require 'lspconfig.util'
 ---@class HtmlServerConfig
 local M = {}
 
---- Setup the HTML LSP server with given capabilities.
+--- Setup the html LSP server with given capabilities.
 --- @param server table The LSP server instance from lspconfig
 --- @param capabilities table The capabilities object passed to the LSP server
 function M.setup(server, capabilities)
