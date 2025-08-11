@@ -22,8 +22,9 @@ local function has_tailwind(root)
     return vim.uv.fs_stat(path) ~= nil
   end
 
-  if exists(vim.fs.joinpath(root, 'tailwind.config.js')) or
-      exists(vim.fs.joinpath(root, 'tailwind.config.ts'))
+  if
+    exists(vim.fs.joinpath(root, 'tailwind.config.js'))
+    or exists(vim.fs.joinpath(root, 'tailwind.config.ts'))
   then
     return true
   end
@@ -34,7 +35,11 @@ local function has_tailwind(root)
     if ok then
       local decoded = vim.fn.json_decode(table.concat(content, '\n'))
       if decoded then
-        local deps = vim.tbl_extend('force', decoded.dependencies or {}, decoded.devDependencies or {})
+        local deps = vim.tbl_extend(
+          'force',
+          decoded.dependencies or {},
+          decoded.devDependencies or {}
+        )
         return deps['tailwindcss'] ~= nil
       end
     end
@@ -55,7 +60,8 @@ function M.setup(server, capabilities)
     capabilities = capabilities,
     filetypes = filetypes,
     root_dir = function(fname)
-      local root = util.root_pattern('tailwind.config.js', 'tailwind.config.ts')(fname)
+      local root =
+        util.root_pattern('tailwind.config.js', 'tailwind.config.ts')(fname)
 
       if root and has_tailwind(root) then
         return root
