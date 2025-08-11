@@ -7,14 +7,14 @@ local M = {}
 --- @param server table LSP server instance from lspconfig
 --- @param capabilities table Capabilities object passed to the LSP server
 function M.setup(server, capabilities)
-  if #vim.lsp.get_clients({ name = 'lua_ls' }) > 0 then
+  if #vim.lsp.get_clients { name = 'lua_ls' } > 0 then
     return
   end
 
   server.setup {
     capabilities = capabilities,
     root_dir = util.root_pattern('.git', 'init.lua', '.stowrc', 'wezterm.lua')(
-      vim.uv.fs_realpath(vim.fn.expand('%:p'))
+      vim.uv.fs_realpath(vim.fn.expand '%:p')
     ) or vim.fn.getcwd(),
     settings = {
       Lua = {
