@@ -19,7 +19,7 @@ function M.setup(server, capabilities)
     capabilities = capabilities,
     filetypes = {
       'json',
-      'jsonc'
+      'jsonc',
     },
     root_dir = util.root_pattern(
       '.git',
@@ -35,7 +35,7 @@ function M.setup(server, capabilities)
       json = {
         validate = true,
         schemaStore = {
-          enable = true
+          enable = true,
         },
         schemas = ok and schemastore.json.schemas() or {},
       },
