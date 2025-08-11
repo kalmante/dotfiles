@@ -3,6 +3,7 @@ local util = require 'lspconfig.util'
 ---@class TailwindCssServerConfig
 local M = {}
 
+---@type string[]
 local filetypes = {
   'html',
   'css',
