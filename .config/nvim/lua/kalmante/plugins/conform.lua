@@ -45,7 +45,7 @@ M.spec = {
             'package.json',
           }, {
             upward = true,
-            path = ctx.filename
+            path = ctx.filename,
           })[1] ~= nil
         end,
       },
@@ -62,21 +62,23 @@ M.spec = {
     local conform = require 'conform'
     conform.setup(opts)
 
-    vim.keymap.set({
+    vim.keymap.set(
+      {
         'n',
-        'v'
+        'v',
       },
       '<leader>cf',
       function()
         conform.format {
           async = false,
           quiet = false,
-          lsp_format = 'fallback'
+          lsp_format = 'fallback',
         }
       end,
       {
-        desc = 'Format file or range (Conform)'
-      })
+        desc = 'Format file or range (Conform)',
+      }
+    )
   end,
 }
 
