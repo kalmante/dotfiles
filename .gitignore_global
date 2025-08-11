@@ -1,2 +1,72 @@
+# macOS system files
 .DS_Store
+.AppleDouble
+.LSOverride
 
+# Thumbnails
+._*
+
+# Icon files
+.Spotlight-V100
+.Trashes
+.VolumeIcon.icns
+
+# Temporary files
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.apdisk
+
+# macOS metadata
+.com.apple.timemachine.donotpresent
+.metadata_never_index
+
+# Backup files
+*.bak
+*.tmp
+*.swp
+
+# Sensitive dotfiles (based on your setup)
+.CFUserTextEncoding
+.p10k.zsh
+.wget-hsts
+.yarnrc
+.zprofile
+
+# SSH keys and config
+.ssh/
+.ssh/*
+
+# Local configs and caches
+.local/
+Library/
+
+# Trash folder
+.Trash/
+
+# Other sensitive user folders you want to exclude
+Documents/
+Downloads/
+Movies/
+Music/
+Pictures/
+Public/
+Desktop/
+
+# Node / Yarn / npm artifacts (if applicable)
+node_modules/
+.yarn/
+.pnp.*
+package-lock.json
+yarn.lock
+
+# Editor or IDE files (optional, adapt as needed)
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+*.log
