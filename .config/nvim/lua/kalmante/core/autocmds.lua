@@ -44,7 +44,7 @@ function M.setup()
   })
 
   -- https://github.com/craftzdog/dotfiles-public/blob/master/.config/nvim/lua/config/autocmds.lua
-  
+
   -- Fix conceallevel for JSON
   vim.api.nvim_create_autocmd('FileType', {
     group = augroup 'json_conceal_fix',
