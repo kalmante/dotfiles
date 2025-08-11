@@ -33,4 +33,6 @@ function M.setup(server, capabilities)
   }
 end
 
+M.name = 'lua_ls'
+
 return M
