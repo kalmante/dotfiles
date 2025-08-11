@@ -7,7 +7,7 @@ local M = {}
 --- @param server table The LSP server instance from lspconfig
 --- @param capabilities table The capabilities object passed to the LSP server
 function M.setup(server, capabilities)
-  if #vim.lsp.get_clients({ name = 'gopls' }) > 0 then
+  if #vim.lsp.get_clients { name = 'gopls' } > 0 then
     return
   end
 
@@ -16,15 +16,10 @@ function M.setup(server, capabilities)
     filetypes = {
       'go',
       'gomod',
-      'gowork'
+      'gowork',
     },
     root_dir = function(fname)
-      return root_pattern(
-            'go.work',
-            'go.mod',
-            '.git'
-          )(fname) or
-          vim.fn.getcwd()
+      return root_pattern('go.work', 'go.mod', '.git')(fname) or vim.fn.getcwd()
     end,
     settings = {
       gopls = {
