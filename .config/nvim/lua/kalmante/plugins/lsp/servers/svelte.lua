@@ -3,7 +3,7 @@ local util = require 'lspconfig.util'
 ---@class SvelteServerConfig
 local M = {}
 
---- Setup the Svelte LSP server with given capabilities.
+--- Setup the svelte LSP server with given capabilities.
 --- @param server table The LSP server instance from lspconfig
 --- @param capabilities table The capabilities object passed to the LSP server
 function M.setup(server, capabilities)
