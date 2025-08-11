@@ -1,5 +1,6 @@
 local util = require 'lspconfig.util'
 
+---@class LuaServerConfig
 local M = {}
 
 --- Setup the Lua LSP server with given capabilities.
