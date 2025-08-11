@@ -39,12 +39,12 @@ function M.setup(server, capabilities)
     capabilities = capabilities,
     filetypes = graphql_filetypes,
     root_dir = util.root_pattern(unpack(graphql_root_files)),
-    single_file_support = true,
     settings = {
       graphql = {
         -- Customize schema/projects here if needed
       },
     },
+    single_file_support = true,
   }
 end
 
