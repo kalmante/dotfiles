@@ -14,8 +14,7 @@ function M.setup(server, capabilities)
   server.setup {
     capabilities = capabilities,
     root_dir = util.root_pattern('.git', 'init.lua', '.stowrc', 'wezterm.lua')(
-    ---@diagnostic disable-next-line: undefined-field
-      vim.loop.fs_realpath(vim.fn.expand('%:p'))
+      vim.uv.fs_realpath(vim.fn.expand('%:p'))
     ) or vim.fn.getcwd(),
     settings = {
       Lua = {
