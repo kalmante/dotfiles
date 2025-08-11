@@ -18,6 +18,7 @@ M.setup = function()
 
   require('lazy').setup({
     { import = 'kalmante.plugins' },
+    { import = 'kalmante.plugins.lsp' },
   }, {
     defaults = {
       lazy = true,
@@ -25,7 +26,7 @@ M.setup = function()
     },
     checker = {
       enabled = true,
-      notify = true,
+      notify = false,
     },
     change_detection = {
       enabled = true,
