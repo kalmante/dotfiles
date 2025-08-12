@@ -3,6 +3,10 @@ local M = {}
 M.spec = {
   'rest-nvim/rest.nvim',
   ft = { 'http' },
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvim-treesitter/nvim-treesitter',
+  },
 
   init = function()
     local ftdetect = vim.fn.stdpath 'data'
@@ -18,11 +22,6 @@ M.spec = {
       end,
     })
   end,
-
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    'nvim-treesitter/nvim-treesitter',
-  },
 
   opts = {
     custom_dynamic_variables = {},
