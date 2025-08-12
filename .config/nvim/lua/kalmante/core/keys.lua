@@ -21,7 +21,7 @@ function M.general()
     '<C-x>',
     { desc = 'Decrement number under cursor' }
   )
-  keys.set('n', '<leader>n', '<cmd>enew<CR>', { desc = 'New file' })
+  keys.set('n', '<leader>N', '<cmd>enew<CR>', { desc = 'New file' })
 end
 
 function M.window()
@@ -60,13 +60,13 @@ function M.plugins()
   local keys = vim.keymap
   keys.set(
     'n',
-    '<leader>l',
+    '<leader>L',
     '<cmd>Lazy<CR>',
     { desc = 'Open lazy.nvim plugin manager' }
   )
   keys.set(
     'n',
-    '<leader>m',
+    '<leader>M',
     '<cmd>Mason<CR>',
     { desc = 'Open Mason tool manager' }
   )
@@ -77,11 +77,11 @@ function M.inspect()
   local keys = vim.keymap
   keys.set(
     'n',
-    '<leader>i',
+    '<leader>I',
     vim.show_pos,
     { desc = 'Inspect highlight groups under cursor' }
   )
-  keys.set('n', '<leader>o', function()
+  keys.set('n', '<leader>O', function()
     vim.treesitter.inspect_tree()
     vim.api.nvim_input 'I'
   end, { desc = 'Open Treesitter Inspector + Insert Mode' })
@@ -117,7 +117,7 @@ function M.quit()
   local keys = vim.keymap
   keys.set(
     'n',
-    '<leader>q',
+    '<leader>Q',
     '<cmd>qa<CR>',
     { desc = 'Quit all windows and exit' }
   )
