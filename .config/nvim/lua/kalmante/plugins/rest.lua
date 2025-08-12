@@ -9,12 +9,6 @@ M.spec = {
   },
 
   init = function()
-    local ftdetect = vim.fn.stdpath 'data'
-      .. '/lazy/rest.nvim/ftdetect/http.lua'
-    if vim.uv.fs_stat(ftdetect) then
-      vim.uv.fs_unlink(ftdetect)
-    end
-
     vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
       pattern = '*.http',
       callback = function()
@@ -42,7 +36,7 @@ M.spec = {
     clients = {
       curl = {
         statistics = {
-          { id = 'time_total', title = 'Time taken' },
+          { id = 'time_total',    title = 'Time taken' },
           { id = 'size_download', title = 'Download size' },
         },
         opts = {
