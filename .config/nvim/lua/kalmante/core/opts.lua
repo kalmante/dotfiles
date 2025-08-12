@@ -23,13 +23,13 @@ function M.ui()
   vim.opt.wrap = false
   vim.opt.conceallevel = 2
   vim.opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
-}
+    foldopen = '',
+    foldclose = '',
+    fold = ' ',
+    foldsep = ' ',
+    diff = '╱',
+    eob = ' ',
+  }
 end
 
 function M.splits()
@@ -62,14 +62,14 @@ end
 
 function M.shell()
   vim.opt.shell = 'zsh'
-  vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
-  vim.opt.completeopt = "menu,menuone,noselect"
+  vim.opt.clipboard = vim.env.SSH_TTY and '' or 'unnamedplus'
+  vim.opt.completeopt = 'menu,menuone,noselect'
 end
 
 function M.misc()
   vim.opt.formatoptions:append { 'r' }
   vim.opt.path:append { '**' }
-  vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
+  vim.opt.shortmess:append { W = true, I = true, c = true, C = true }
   vim.opt.wildignore:append { '*/node_modules/*' }
   vim.opt.wildmode = 'longest:full,full'
   vim.opt.backspace = { 'start', 'eol', 'indent' }
