@@ -53,13 +53,6 @@ Pictures/
 Public/
 Desktop/
 
-# Node / Yarn / npm artifacts (if applicable)
-node_modules/
-.yarn/
-.pnp.*
-package-lock.json
-yarn.lock
-
 # Editor or IDE files (optional, adapt as needed)
 .idea/
 *.suo
