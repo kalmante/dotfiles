@@ -4,6 +4,21 @@ M.spec = {
   'rest-nvim/rest.nvim',
   ft = { 'http' },
 
+  init = function()
+    local ftdetect = vim.fn.stdpath 'data'
+      .. '/lazy/rest.nvim/ftdetect/http.lua'
+    if vim.uv.fs_stat(ftdetect) then
+      vim.uv.fs_unlink(ftdetect)
+    end
+
+    vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+      pattern = '*.http',
+      callback = function()
+        vim.bo.filetype = 'http'
+      end,
+    })
+  end,
+
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
