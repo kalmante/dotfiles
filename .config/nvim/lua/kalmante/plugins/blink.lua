@@ -10,15 +10,34 @@ M.spec = {
       optional = true,
       version = '1.*',
     },
+    {
+      'L3MON4D3/LuaSnip',
+      build = 'make install_jsregexp',
+      dependencies = { 'rafamadriz/friendly-snippets' },
+      lazy = true,
+      opts = {
+        history = true,
+        updateevents = 'TextChanged,TextChangedI',
+        enable_autosnippets = true,
+      },
+      config = function(_, opts)
+        local luasnip = require 'luasnip'
+        luasnip.config.set_config(opts)
+        require('luasnip.loaders.from_vscode').lazy_load()
+      end,
+    },
   },
 
   opts = function()
-    local luasnip = require 'luasnip'
-
     local opts = {
       snippets = {
         preset = 'luasnip',
         expand = function(body)
+          local ok, luasnip = pcall(require, 'luasnip')
+          if not ok then
+            require('lazy').load { plugins = { 'LuaSnip' } }
+            luasnip = require 'luasnip'
+          end
           luasnip.lsp_expand(body)
         end,
       },
@@ -59,7 +78,7 @@ M.spec = {
         },
         menu = {
           draw = {
-            treesitter = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+            treesitter = { enabled = true },
           },
           border = 'rounded',
           winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None',
@@ -71,22 +90,7 @@ M.spec = {
           },
         },
       },
-
-      cmdline = {
-        keymap = {
-          preset = 'inherit',
-        },
-        completion = {
-          ghost_text = {
-            enabled = false,
-          },
-          menu = {
-            auto_show = false,
-          },
-        },
-      },
     }
-
     return opts
   end,
 }
