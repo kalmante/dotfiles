@@ -9,17 +9,8 @@ M.spec = {
     'nvim-treesitter/nvim-treesitter',
   },
 
-  init = function()
-    vim.filetype.add {
-      extension = {
-        http = 'http',
-      },
-    }
-  end,
-
   opts = {
     custom_dynamic_variables = {},
-
     request = {
       skip_ssl_verification = true,
       hooks = {
@@ -28,14 +19,12 @@ M.spec = {
         set_content_type = true,
       },
     },
-
     response = {
       hooks = {
         decode_url = true,
         format = true,
       },
     },
-
     clients = {
       curl = {
         statistics = {
@@ -48,12 +37,10 @@ M.spec = {
         },
       },
     },
-
     cookies = {
       enable = true,
       path = vim.fs.joinpath(vim.fn.stdpath 'data', 'rest-nvim.cookies'),
     },
-
     env = {
       enable = true,
       pattern = '.*%.env.*',
@@ -68,7 +55,6 @@ M.spec = {
         })
       end,
     },
-
     ui = {
       winbar = true,
       keybinds = {
@@ -76,12 +62,10 @@ M.spec = {
         next = 'L',
       },
     },
-
     highlight = {
       enable = true,
       timeout = 750,
     },
-
     _log_level = vim.log.levels.WARN,
   },
 
@@ -92,6 +76,7 @@ M.spec = {
       return
     end
 
+    ---@diagnostic disable-next-line: deprecated
     rest.setup(opts)
 
     local map = vim.keymap.set
