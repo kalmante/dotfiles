@@ -2,31 +2,24 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-
-# Thumbnails
 ._*
-
-# Icon files
 .Spotlight-V100
 .Trashes
 .VolumeIcon.icns
-
-# Temporary files
 .DocumentRevisions-V100
 .fseventsd
 .TemporaryItems
 .apdisk
-
-# macOS metadata
 .com.apple.timemachine.donotpresent
 .metadata_never_index
 
-# Backup files
+# Backup and temp files
 *.bak
 *.tmp
 *.swp
+*.log
 
-# Sensitive dotfiles (based on your setup)
+# Sensitive dotfiles
 .CFUserTextEncoding
 .p10k.zsh
 .wget-hsts
@@ -40,26 +33,16 @@
 # Local configs and caches
 .local/
 Library/
-
-# Trash folder
 .Trash/
 
-# Other sensitive user folders you want to exclude
+# macOS user folders
 Documents/
 Downloads/
 Movies/
 Music/
 Pictures/
-Public/
 Desktop/
+Public/
 
-# Editor or IDE files (optional, adapt as needed)
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Logs
-*.log
+# Force tracking project folders/files that may conflict with global ignore
+!public/
