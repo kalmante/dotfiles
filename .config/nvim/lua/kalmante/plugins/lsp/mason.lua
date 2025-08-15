@@ -2,12 +2,9 @@ local M = {}
 
 M.spec = {
   {
-    'williamboman/mason.nvim',
-    version = '*',
-    event = 'VeryLazy',
+    'mason-org/mason.nvim',
     opts = {
       ui = {
-        border = 'none',
         icons = {
           package_installed = '✓',
           package_pending = '➜',
@@ -19,73 +16,46 @@ M.spec = {
 
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    version = '*',
     event = 'VeryLazy',
-    config = function()
-      require('mason-tool-installer').setup {
-        ensure_installed = {
-          'black',
-          'eslint_d',
-          'golangci-lint',
-          'goimports',
-          'isort',
-          'prettier',
-          'pylint',
-          'shfmt',
-          'stylua',
-        },
-        run_on_start = false,
-      }
-    end,
+    dependencies = { 'mason-org/mason.nvim' },
+    opts = {
+      ensure_installed = {
+        'black',
+        'eslint_d',
+        'golangci-lint',
+        'goimports',
+        'isort',
+        'prettier',
+        'pylint',
+        'shfmt',
+        'stylua',
+      },
+      run_on_start = false,
+    },
   },
 
   {
-    'williamboman/mason-lspconfig.nvim',
-    version = '*',
-    event = { 'BufReadPre', 'BufNewFile' },
-    dependencies = { 'williamboman/mason.nvim' },
-    config = function()
-      local mason_lspconfig = require 'mason-lspconfig'
-
-      mason_lspconfig.setup {
-        ensure_installed = {
-          'astro',
-          'cssls',
-          'emmet_language_server',
-          'eslint',
-          'gopls',
-          'graphql',
-          'html',
-          'jsonls',
-          'lua_ls',
-          'marksman',
-          'pyright',
-          'svelte',
-          'tailwindcss',
-          'vtsls',
-          'yamlls',
-        },
-        automatic_enable = {
-          exclude = {
-            'astro',
-            'cssls',
-            'emmet_language_server',
-            'eslint',
-            'gopls',
-            'graphql',
-            'html',
-            'jsonls',
-            'lua_ls',
-            'marksman',
-            'pyright',
-            'svelte',
-            'tailwindcss',
-            'vtsls',
-            'yamlls',
-          },
-        },
-      }
-    end,
+    'mason-org/mason-lspconfig.nvim',
+    dependencies = { 'mason-org/mason.nvim', 'neovim/nvim-lspconfig' },
+    opts = {
+      ensure_installed = {
+        'astro',
+        'cssls',
+        'emmet_language_server',
+        'eslint',
+        'gopls',
+        'graphql',
+        'html',
+        'jsonls',
+        'lua_ls',
+        'marksman',
+        'pyright',
+        'svelte',
+        'tailwindcss',
+        'vtsls',
+        'yamlls',
+      },
+    },
   },
 }
 
