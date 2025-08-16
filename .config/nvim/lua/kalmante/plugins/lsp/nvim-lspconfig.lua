@@ -56,7 +56,7 @@ M.spec = {
       on_attach = on_attach,
       settings = {
         Lua = {
-          diagnostics = { globals = { 'vim', 'vim.uv' } },
+          diagnostics = { globals = { 'vim' } },
           hint = { enable = true },
           telemetry = { enable = false },
           workspace = {
